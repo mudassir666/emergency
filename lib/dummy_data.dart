@@ -11,7 +11,7 @@ const Dummy_Departments = const [
       id: 'd2',
       title: 'Ambulance',
       imageUrl:
-          'https://e7.pngegg.com/pngimages/223/772/png-clipart-ambulance-emergency-vehicle-hospital-health-care-ambulance-compact-car-logo.png'),
+          'https://www.pinclipart.com/picdir/big/81-818992_cross-clipart-ambulance-icon-ambulance-vector-png-download.png'),
   Department(
       id: 'd3',
       title: 'Fire Brigade',
@@ -21,7 +21,7 @@ const Dummy_Departments = const [
       id: 'd4',
       title: 'Rescue Team',
       imageUrl:
-          'https://cdn.imgbin.com/5/0/6/imgbin-logo-rescue-team-hard-hat-emblem-ms-carita-inc-font-trademark-rescue-911-logo-sSv31QDZB6P3swHwnn1AYnTRT.jpg'),
+          'https://cdn.shopify.com/s/files/1/0329/0333/products/hard_hat_stickers_RESCUE_TEAM_240x.png?v=1571438565'),
 ];
 
 const Dummy_Organization = const [
@@ -69,5 +69,35 @@ const Dummy_Organization = const [
     balochistan: true,
     punjab: true,
     khyberPakhtunkhwa: true,
+  ),
+  Organization(
+    id: 'o4',
+    departmentId: 'd2',
+    title: 'Aman Ambulance',
+    imageUrl:
+        'https://www.theamanfoundation.org/wp-content/uploads/2016/11/The-Aman-Foundation-Logo-e1490165532527.png',
+    time: Time.Open_24_Hours,
+    email: 'info@amanfoundation.org',
+    phone: '1021',
+    webSite: 'https://www.theamanfoundation.org/program/aman-ambulance/',
+    sindh: true,
+    balochistan: true,
+    punjab: true,
+    khyberPakhtunkhwa: true,
+  ),
+  Organization(
+    id: 'o5',
+    departmentId: 'd2',
+    title: 'JDC Ambulance',
+    imageUrl:
+        'https://jdcwelfare.org/wp-content/uploads/2020/10/jdc-png.png',
+    time: Time.Open_24_Hours,
+    email: 'info@jdcwelfare.org',
+    phone: '1024',
+    webSite: 'https://jdcwelfare.org/campaigns/ambulance-services/',
+    sindh: true,
+    balochistan: false,
+    punjab: false,
+    khyberPakhtunkhwa: false,
   ),
 ];
