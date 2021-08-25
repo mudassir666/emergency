@@ -1,4 +1,5 @@
 import 'package:emergency/dummy_data.dart';
+import 'package:emergency/widgets/department_organization.dart';
 import 'package:flutter/material.dart';
 
 class DepartmentScreen extends StatelessWidget {
@@ -16,10 +17,16 @@ class DepartmentScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(departmentTitle),
       ),
-      body: Center(
+      body: Container(
+        color: Colors.red.shade900,
         child: ListView.builder(
           itemBuilder: (context, index) {
-            return Text(organizations[index].title);
+            return DepartmentOrganizations(
+              organizationId: organizations[index].id,
+              title: organizations[index].title,
+              imageUrl: organizations[index].imageUrl,
+              time: organizations[index].time,
+            );
           },
           itemCount: organizations.length,
         ),

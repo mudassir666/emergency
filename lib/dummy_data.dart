@@ -45,7 +45,7 @@ const Dummy_Organization = const [
     departmentId: 'd2',
     title: 'Edhi Ambulance',
     imageUrl:
-        'https://dailytimes.com.pk/assets/uploads/2019/02/28/aaa-1280x720.png',
+        'https://www.boundlesstech.net/assets/images/clients/Edhi.png',
     time: Time.Open_24_Hours,
     email: 'lnfo@edhi.org',
     phone: '115',

@@ -1,8 +1,15 @@
 import 'package:emergency/screens/department_screen.dart';
+import 'package:emergency/screens/organization_detail_screen.dart';
 import 'package:emergency/screens/services_screem.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(MyApp());
 }
 
@@ -19,8 +26,9 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.light,
         textTheme: ThemeData.light().textTheme.copyWith(
             headline6: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+                 color: Colors.red[900],
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold
               ),
             ),
       ),
@@ -29,6 +37,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/' : (ctx) => ServicesScreen(),
         DepartmentScreen.routeName : (ctx) => DepartmentScreen(),
+        OrganizationDetailScreen.routeName : (ctx) => OrganizationDetailScreen(),
       },
     );
   }
