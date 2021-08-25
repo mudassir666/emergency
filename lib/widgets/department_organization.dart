@@ -30,56 +30,63 @@ class DepartmentOrganizations extends StatelessWidget {
 
   void organiztionDetailScreen(BuildContext ctx) {
     Navigator.pushNamed(ctx, OrganizationDetailScreen.routeName,
-    arguments: organizationId);
+        arguments: organizationId);
   }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => organiztionDetailScreen(context),
-      child: Container(
-        child: Card(
-          margin: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
-          color: Colors.white,
-          shape: RoundedRectangleBorder(
-            side: BorderSide(color: Colors.redAccent, width: 1),
-            borderRadius: BorderRadius.circular(15),
-          ),
-          elevation: 10,
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(5),
-                child: Image.network(
-                  imageUrl, fit: BoxFit.cover,
-                  height: 250,
-                  //  width: double.infinity,
-                ),
+      child: LayoutBuilder(
+        builder: (ctx, constraints) {
+          return Container(
+            child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 15, vertical: 9),
+              color: Colors.white,
+              shape: RoundedRectangleBorder(
+                side: BorderSide(color: Colors.redAccent, width: 1),
+                borderRadius: BorderRadius.circular(15),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.av_timer,
-                      color: Colors.red[900],
-                      size: 30,
+              elevation: 10,
+              child: Column(
+                children: [
+                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.all(16),
+                      child: Image.network(
+                        imageUrl, fit: BoxFit.cover,
+                        height: constraints.maxHeight * 0.5,
+                        //  width: double.infinity,
+                      ),
                     ),
-                    SizedBox(
-                      width: 5,
+                  ),
+                  Container(
+                    height: constraints.maxHeight * 0.2,
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.av_timer,
+                          color: Colors.red[900],
+                          size: 30,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          timeText,
+                          style: Theme.of(context).textTheme.headline6,
+                        ),
+                        //Text()
+                      ],
                     ),
-                    Text(
-                      timeText,
-                      style: Theme.of(context).textTheme.headline6,
-                    ),
-                    //Text()
-                  ],
-                ),
-              )
-            ],
-          ),
-        ),
+                  )
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }

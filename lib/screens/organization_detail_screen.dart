@@ -8,13 +8,14 @@ import 'package:flutter/services.dart';
 class OrganizationDetailScreen extends StatelessWidget {
   static const routeName = '/organization-detail';
 
+  final _subject = TextEditingController();
+  final _body = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final organizationId = ModalRoute.of(context)!.settings.arguments as String;
     final organization =
         Dummy_Organization.firstWhere((org) => org.id == organizationId);
-    final _subject = TextEditingController();
-    final _body = TextEditingController();
 
     void submit() {
       if (_body.text.isEmpty || _subject.text.isEmpty) {
@@ -70,8 +71,7 @@ class OrganizationDetailScreen extends StatelessWidget {
           ),
         ),
         style: ButtonStyle(
-          backgroundColor:
-              MaterialStateProperty.all(Theme.of(context).primaryColor),
+          backgroundColor: MaterialStateProperty.all(Colors.red),
         ),
       );
     }
@@ -95,7 +95,7 @@ class OrganizationDetailScreen extends StatelessWidget {
       );
     }
 
-    Widget space(AppBar appbar , double no) {
+    Widget space(AppBar appbar, double no) {
       return SizedBox(
         height: (MediaQuery.of(context).size.height -
                 appbar.preferredSize.height -
@@ -193,9 +193,8 @@ class OrganizationDetailScreen extends StatelessWidget {
                             // SizedBox(
                             //   height: 5,
                             // ),
-                            customTextField(
-                                _body, Icons.book_sharp, 'Body'),
-                          space(appbar, 0.033),
+                            customTextField(_body, Icons.book_sharp, 'Body'),
+                            space(appbar, 0.033),
                             customSubmitButton(),
                             space(appbar, 0.015),
                             customButton(organization.phone, Icons.call),

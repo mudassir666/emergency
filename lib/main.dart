@@ -1,6 +1,6 @@
 import 'package:emergency/screens/department_screen.dart';
 import 'package:emergency/screens/organization_detail_screen.dart';
-import 'package:emergency/screens/services_screem.dart';
+import 'package:emergency/screens/tabs_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -21,8 +21,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.red,
-        accentColor: Colors.deepPurple,
+        primaryColor: Colors.red[900],
+        accentColor: Colors.red[400],
         brightness: Brightness.light,
         textTheme: ThemeData.light().textTheme.copyWith(
             headline6: TextStyle(
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
       
       initialRoute: '/',
       routes: {
-        '/' : (ctx) => ServicesScreen(),
+        '/' : (ctx) => TabsScreen(),
         DepartmentScreen.routeName : (ctx) => DepartmentScreen(),
         OrganizationDetailScreen.routeName : (ctx) => OrganizationDetailScreen(),
       },

@@ -13,22 +13,32 @@ class DepartmentScreen extends StatelessWidget {
     final organizations = Dummy_Organization.where((id) {
       return id.departmentId.contains(departmentId);
     }).toList();
+     final appbar = AppBar(
+      title: Text(departmentTitle),
+      centerTitle: true,
+    );
     return Scaffold(
-      appBar: AppBar(
-        title: Text(departmentTitle),
-      ),
-      body: Container(
-        color: Colors.red.shade900,
-        child: ListView.builder(
-          itemBuilder: (context, index) {
-            return DepartmentOrganizations(
-              organizationId: organizations[index].id,
-              title: organizations[index].title,
-              imageUrl: organizations[index].imageUrl,
-              time: organizations[index].time,
-            );
-          },
-          itemCount: organizations.length,
+      appBar: appbar,
+      body: SafeArea(
+        child: Container(
+          color: Colors.red.shade900,
+          child: ListView.builder(
+            itemBuilder: (context, index) {
+              return Container(
+                height: (MediaQuery.of(context).size.height -
+                            appbar.preferredSize.height -
+                            MediaQuery.of(context).padding.top) *
+                        0.48,
+                child: DepartmentOrganizations(
+                  organizationId: organizations[index].id,
+                  title: organizations[index].title,
+                  imageUrl: organizations[index].imageUrl,
+                  time: organizations[index].time,
+                ),
+              );
+            },
+            itemCount: organizations.length,
+          ),
         ),
       ),
     );
