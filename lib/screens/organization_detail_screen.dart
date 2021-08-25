@@ -29,31 +29,33 @@ class OrganizationDetailScreen extends StatelessWidget {
     }
 
     Widget customButton(String data, IconData icon) {
-      return FittedBox(
-          child: ElevatedButton.icon(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(Colors.white),
-        ),
-        onPressed: data == organization.phone
-            ? () {
-                launch('tel:$data');
-              }
-            : () {
-                launch(data);
-              },
-        icon: Icon(
-          icon,
-          color: Colors.red[900],
-        ),
-        label: Text(
-          data,
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 15,
-            fontWeight: FontWeight.bold,
+      return Expanded(
+        child: FittedBox(
+            child: ElevatedButton.icon(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(Colors.white),
           ),
-        ),
-      ));
+          onPressed: data == organization.phone
+              ? () {
+                  launch('tel:$data');
+                }
+              : () {
+                  launch(data);
+                },
+          icon: Icon(
+            icon,
+            color: Colors.red[900],
+          ),
+          label: Text(
+            data,
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        )),
+      );
     }
 
     Widget customSubmitButton() {
@@ -76,18 +78,29 @@ class OrganizationDetailScreen extends StatelessWidget {
 
     Widget customTextField(
         TextEditingController controller, IconData icon, String text) {
-      return TextFormField(
-        controller: controller,
-        keyboardType: TextInputType.text,
-        decoration: InputDecoration(
-          icon: Icon(
-            icon,
-            color: Colors.red[900],
+      return Expanded(
+        child: TextFormField(
+          controller: controller,
+          keyboardType: TextInputType.text,
+          decoration: InputDecoration(
+            icon: Icon(
+              icon,
+              color: Colors.red[900],
+            ),
+            hintText: text,
+            hintStyle: TextStyle(
+                color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
           ),
-          hintText: text,
-          hintStyle: TextStyle(
-              color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
         ),
+      );
+    }
+
+    Widget space(AppBar appbar , double no) {
+      return SizedBox(
+        height: (MediaQuery.of(context).size.height -
+                appbar.preferredSize.height -
+                MediaQuery.of(context).padding.top) *
+            no,
       );
     }
 
@@ -98,89 +111,98 @@ class OrganizationDetailScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: appbar,
-      body: Container(
-        height: (MediaQuery.of(context).size.height -
-                appbar.preferredSize.height -
-                MediaQuery.of(context).padding.top) *
-            1,
-        color: Colors.red[900],
+      body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
+            color: Colors.red[900],
             child: Column(
               children: [
-                Card(
-                  margin: EdgeInsets.symmetric(horizontal: 5, vertical: 8),
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(color: Colors.redAccent, width: 1),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  elevation: 10,
-                  child: Container(
-                    height: 300,
-                    width: double.infinity,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: FittedBox(
-                        child: Image.network(
-                          organization.imageUrl,
-                          fit: BoxFit.cover,
-                          // width: double.infinity,
+                Container(
+                  height: (MediaQuery.of(context).size.height -
+                          appbar.preferredSize.height -
+                          MediaQuery.of(context).padding.top) *
+                      0.40,
+                  child: Card(
+                    margin: EdgeInsets.symmetric(horizontal: 5, vertical: 8),
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(color: Colors.redAccent, width: 1),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    elevation: 10,
+                    child: Container(
+                      height: 300,
+                      width: double.infinity,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: FittedBox(
+                          child: Image.network(
+                            organization.imageUrl,
+                            fit: BoxFit.cover,
+                            // width: double.infinity,
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
-                Card(
-                  margin: EdgeInsets.symmetric(horizontal: 5, vertical: 8),
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(color: Colors.redAccent, width: 1),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  elevation: 10,
-                  child: Container(
-                    decoration:
-                        BoxDecoration(borderRadius: BorderRadius.circular(15)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          TextFormField(
-                            readOnly: true,
-                            showCursor: false,
-                            decoration: InputDecoration(
-                              focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.white)),
-                              icon: Icon(
-                                Icons.email,
-                                color: Colors.red[900],
+                Container(
+                  height: (MediaQuery.of(context).size.height -
+                          appbar.preferredSize.height -
+                          MediaQuery.of(context).padding.top) *
+                      0.60,
+                  child: Card(
+                    margin: EdgeInsets.symmetric(horizontal: 5, vertical: 8),
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(color: Colors.redAccent, width: 1),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    elevation: 10,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: TextFormField(
+                                readOnly: true,
+                                showCursor: false,
+                                decoration: InputDecoration(
+                                  focusedBorder: UnderlineInputBorder(
+                                      borderSide:
+                                          BorderSide(color: Colors.white)),
+                                  icon: Icon(
+                                    Icons.email,
+                                    color: Colors.red[900],
+                                  ),
+                                  hintText: 'Email : ${organization.email}',
+                                  hintStyle: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                ),
                               ),
-                              hintText: 'Email : ${organization.email}',
-                              hintStyle: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold),
                             ),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          customTextField(
-                              _subject, Icons.subject_rounded, 'Subject'),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          customTextField(_body, Icons.book_sharp, 'Body'),
-                          SizedBox(
-                            height: 10,
-                          ),
-                         customSubmitButton(),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          customButton(organization.phone, Icons.call),
-                          customButton(organization.webSite, Icons.public),
-                        ],
+                            // SizedBox(
+                            //   height: 5,
+                            // ),
+                            customTextField(
+                                _subject, Icons.subject_rounded, 'Subject'),
+                            // SizedBox(
+                            //   height: 5,
+                            // ),
+                            customTextField(
+                                _body, Icons.book_sharp, 'Body'),
+                          space(appbar, 0.033),
+                            customSubmitButton(),
+                            space(appbar, 0.015),
+                            customButton(organization.phone, Icons.call),
+                            space(appbar, 0.015),
+                            customButton(organization.webSite, Icons.public),
+                          ],
+                        ),
                       ),
                     ),
                   ),
