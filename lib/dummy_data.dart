@@ -6,7 +6,7 @@ const Dummy_Departments = const [
       id: 'd1',
       title: 'Police',
       imageUrl:
-          'https://1000logos.net/wp-content/uploads/2021/06/Police-logo.png'),
+          'https://images.squarespace-cdn.com/content/v1/5c94fd47fb18201554682d3f/1553810867716-4AJT9BDN2AN887SQJLK0/police-icon.png?format=300w'),
   Department(
       id: 'd2',
       title: 'Ambulance',
@@ -76,7 +76,7 @@ const Dummy_Organization = const [
     title: 'Aman Ambulance',
     imageUrl:
         'https://www.theamanfoundation.org/wp-content/uploads/2016/11/The-Aman-Foundation-Logo-e1490165532527.png',
-    time: Time.Open_24_Hours,
+    time: Time.Night,
     email: 'info@amanfoundation.org',
     phone: '1021',
     webSite: 'https://www.theamanfoundation.org/program/aman-ambulance/',
